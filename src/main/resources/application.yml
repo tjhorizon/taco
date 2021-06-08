@@ -1,0 +1,40 @@
+#spring:
+#  security:
+#    user:
+#      name: buzz
+#      password: infinity
+
+taco:
+  orders:
+    pageSize: 10
+
+
+  discount:
+    codes:
+      abcdef: 10
+    
+---
+spring:
+#  profiles: prod
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tacocloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#    url: jdbc:mysql://localhost/tacocloud
+    username: root
+    password: tongji
+
+  jpa:
+    hibernate:
+      #      每次启动项目的时候 自动判断
+      # 项目中的实体类与数据库中的表结构是否一样，如果不一样的时候
+      # 需要重新创建 实体生产环境中 将下面的 ddl-auto设置为none
+      ddl-auto: update
+      #      将sql语句显示在控制台
+      show-sql: true
+    #    配置日志
+
+logging:
+  level:
+    tacos: WARN
+    
